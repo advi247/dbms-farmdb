@@ -1,0 +1,14 @@
+<%- include('partials/header.ejs'); -%>
+<img class="logo" src="images/logo.png" alt="">
+<h1 class="heading">Delete Details</h1>
+
+<div class="filterContainer">
+    <form class="filterForm" action="delete" method="post"> 
+        <input class="filterInput" type="number" id="id" name="id" placeholder="Enter your ID">
+        <button class="filterBtn" type="submit">Submit</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<%- include('partials/footer.ejs'); -%>

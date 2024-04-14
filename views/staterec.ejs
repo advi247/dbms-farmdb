@@ -1,0 +1,50 @@
+<%- include('partials/header.ejs'); -%>
+<img class="logo" src="images/logo.png" alt="">
+<h1 class="heading">Farmers' Data by State</h1>
+
+<style>
+    
+</style>
+
+<div class="filterContainer">
+    <form class="filterForm" action="/filterstate" method="post"> 
+        <input class="filterInput" type="text" id="stateInput" name="stateInput" placeholder="Enter your State">
+        <button class="filterBtn" type="submit">Submit</button>
+    </form>
+</div>
+
+<% if (locals.farmers){ %>
+    <div class="aligning">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID (Auto-assigned)</th>
+                    <th>Name of Farmer</th>
+                    <th>Age</th>
+                    <th>District</th>
+                    <th>State</th>
+                    <th>Crop Cultivated</th>
+                    <th>Date of Registration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% farmers.forEach(function(farmer) {%>
+                <tr>
+                    <td><%= farmer.id %></td>
+                    <td><%= farmer.name %></td>
+                    <td><%= farmer.age %></td>
+                    <td><%= farmer.district %></td>
+                    <td><%= farmer.state %></td>
+                    <td><%= farmer.crop %></td>
+                    <td><%= farmer.reg_date %></td>
+                </tr>
+                <% });%>
+            </tbody>
+        </table>
+    </div>
+<% } %>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<%- include('partials/footer.ejs'); -%>
