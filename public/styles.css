@@ -1,6 +1,6 @@
 /*Body Styling*/
 body{
-  background-color:#f0f8f3;
+  background-color:#fff9fb;
   margin: 0; 
   padding: 0; 
   height: 100vh; 
@@ -21,7 +21,7 @@ body{
   font-size: 2rem;
   letter-spacing: 1.25px;
   padding-right: 20px;
-  color: #371901;
+  color: #b12a37;
   transition: transform .3s;  
 }
 
@@ -30,7 +30,7 @@ body{
   font-weight: 600; 
   font-size: 1.125rem;
   letter-spacing: 1.25px;
-  color: #371901;
+  color: #b12a37;
   transition: transform .3s; 
 } 
 
@@ -41,16 +41,17 @@ body{
 }
 
 .dropdown-background{
-  background-color: #f0f8f3;
+  background-color: #fff3fb;
 }
 
 /*Index.ejs - Hero, Logo, Carousel*/
 .heading{
+  margin-top: 40px;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 800;
   font-size: 3.5rem;
   letter-spacing: 0.5px;
-  color: #371901;
+  color: #650d16;
 }
 
 .content{
@@ -59,7 +60,7 @@ body{
   font-weight: 500;
   font-size: 1.25rem;
   letter-spacing: 0.5px;
-  color: #235823;
+  color: #456779;
 }
 
 .carousel-image{
@@ -76,12 +77,13 @@ body{
 
 /*Register.ejs - Form, Button*/
 h1{
+  margin-top: 40px;
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 800;
   font-size: 2.5rem;
   letter-spacing: 0.5px;
-  color: #371901;
+  color: #650d16;
   padding-top: 3px;
   margin-bottom: 2rem;
 }
@@ -93,7 +95,7 @@ label {
   font-weight: 550;
   font-size: 1.25rem;
   letter-spacing: 0.5px;
-  color: #235823;
+  color: #456779;
 }
 
 input,
@@ -103,7 +105,7 @@ button {
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid #c9c9c9;
   margin-bottom: 1rem;
 }
 
@@ -148,12 +150,12 @@ th, td {
 }
 
 th {
-  background-color: #e8fcef;
+  background-color: #ffeef6;
   font-family: "Courier Prime", monospace;
   font-weight: 550;
   font-size: 1.15rem;
   letter-spacing: 0.5px;
-  color: #235823;
+  color: #456779;
 }
 
 tr {
@@ -161,7 +163,7 @@ tr {
   font-weight: 550;
   font-size: 1.00rem;
   letter-spacing: 0.5px;
-  color: #371901;
+  color: #650d16;
 }
 
 /*Namerec.ejs, District.ejs, State.ejs, Crop.ejs - Form*/
@@ -237,7 +239,7 @@ tr {
   font-weight: 550;
   font-size: 1.45rem;
   letter-spacing: 0.5px;
-  color: #235823;
+  color: #456779;
   }
 
 .editContainer p{
@@ -246,7 +248,7 @@ tr {
   font-weight: 550;
   font-size: 1.25rem;
   letter-spacing: 0.5px;
-  color: #371901;
+  color: #650d16;
   margin-top: 3%;
 }
 
