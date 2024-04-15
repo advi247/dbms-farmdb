@@ -46,7 +46,18 @@
             </ul>
           </li>
           <!--EditRec-->
-          <li class="nav-item"><a class="nav-link" href="/editrec">Edit Details</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Edit Details
+            </a>
+            <ul class="dropdown-menu dropdown-background">
+              <li><a class="dropdown-item" href="/editname">Edit your Name</a></li>
+              <li><a class="dropdown-item" href="/editage">Edit your Age</a></li>
+              <li><a class="dropdown-item" href="/editdistrict">Edit your District Name</a></li>
+              <li><a class="dropdown-item" href="/editstate">Edit your State Name</a></li>
+              <li><a class="dropdown-item" href="/editcrop">Edit the name of your Crop</a></li>
+            </ul>
+          </li>
           <!--DeleteRec-->
           <li class="nav-item"><a class="nav-link" href="/deleterec">Delete Details</a></li>
         </ul>

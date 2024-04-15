@@ -129,8 +129,8 @@ app.post("/filtercrop", async (req, res) => {
 });
 
 //EDIT DETAILS - EDITREC.EJS
-app.get("/editrec", async (req, res) => {
-  res.render("editrec.ejs");
+app.get("/editname", async (req, res) => {
+  res.render("editname.ejs");
 });
 
 app.post("/updaterec", async (req, res) => {
