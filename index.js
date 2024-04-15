@@ -133,8 +133,8 @@ app.get("/editname", async (req, res) => {
   res.render("editname.ejs");
 });
 
-app.post("/getID", async (req, res) => {
-  const id = req.body.getID;
+app.post("/getIDName", async (req, res) => {
+  const id = req.body.getIDName;
   try {
     const result = await db.query("SELECT * FROM farmer WHERE id = $1;", [id]);
     farmers = result.rows;
@@ -151,6 +151,118 @@ app.post("/editname", async (req, res) => {
   try {
     const result = await db.query("UPDATE farmer SET  name = ($1) WHERE id = $2", [name, id]);
     res.render("editname.ejs");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+//EDIT DETAILS - EDITAGE.EJS
+app.get("/editage", async (req, res) => {
+  res.render("editage.ejs");
+});
+
+app.post("/getIDAge", async (req, res) => {
+  const id = req.body.getIDAge;
+  try {
+    const result = await db.query("SELECT * FROM farmer WHERE id = $1;", [id]);
+    farmers = result.rows;
+    
+    res.render("editage.ejs", {farmers: farmers});
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.post("/editage", async (req, res) => {
+  const age = req.body.age;
+  const id = req.body.id
+  try {
+    const result = await db.query("UPDATE farmer SET  age = ($1) WHERE id = $2", [age, id]);
+    res.render("editage.ejs");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+//EDIT DETAILS - EDITDISTRICT.EJS
+app.get("/editdistrict", async (req, res) => {
+  res.render("editdistrict.ejs");
+});
+
+app.post("/getIDDistrict", async (req, res) => {
+  const id = req.body.getIDDistrict;
+  try {
+    const result = await db.query("SELECT * FROM farmer WHERE id = $1;", [id]);
+    farmers = result.rows;
+    
+    res.render("editdistrict.ejs", {farmers: farmers});
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.post("/editdistrict", async (req, res) => {
+  const district = req.body.district;
+  const id = req.body.id
+  try {
+    const result = await db.query("UPDATE farmer SET  district = ($1) WHERE id = $2", [district, id]);
+    res.render("editdistrict.ejs");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+//EDIT DETAILS - EDITSTATE.EJS
+app.get("/editstate", async (req, res) => {
+  res.render("editstate.ejs");
+});
+
+app.post("/getIDState", async (req, res) => {
+  const id = req.body.getIDState;
+  try {
+    const result = await db.query("SELECT * FROM farmer WHERE id = $1;", [id]);
+    farmers = result.rows;
+    
+    res.render("editstate.ejs", {farmers: farmers});
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.post("/editstate", async (req, res) => {
+  const state = req.body.state;
+  const id = req.body.id
+  try {
+    const result = await db.query("UPDATE farmer SET  state = ($1) WHERE id = $2", [state, id]);
+    res.render("editstate.ejs");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+//EDIT DETAILS - EDITCROP.EJS
+app.get("/editcrop", async (req, res) => {
+  res.render("editcrop.ejs");
+});
+
+app.post("/getIDCrop", async (req, res) => {
+  const id = req.body.getIDCrop;
+  try {
+    const result = await db.query("SELECT * FROM farmer WHERE id = $1;", [id]);
+    farmers = result.rows;
+    
+    res.render("editcrop.ejs", {farmers: farmers});
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.post("/editcrop", async (req, res) => {
+  const crop = req.body.crop;
+  const id = req.body.id
+  try {
+    const result = await db.query("UPDATE farmer SET  crop = ($1) WHERE id = $2", [crop, id]);
+    res.render("editcrop.ejs");
   } catch (err) {
     console.log(err);
   }

@@ -1,11 +1,11 @@
 <%- include('partials/header.ejs'); -%>
 <img class="logo" src="images/logo.png" alt="">
-<h1 class="heading">Edit your Name</h1>
+<h1 class="heading">Edit your District</h1>
 
 <div class="filterContainer">
-  <form class="filterForm" action="/getIDName" method="post"> 
-      <input class="filterInput" type="text" id="getIDName" name="getIDName" placeholder="Enter your ID">
-      <button class="filterBtn" type="submit">Get Name</button>
+  <form class="filterForm" action="/getIDDistrict" method="post"> 
+      <input class="filterInput" type="text" id="getIDDistrict" name="getIDDistrict" placeholder="Enter your ID">
+      <button class="filterBtn" type="submit">Get District</button>
   </form>
 </div>
 
@@ -13,21 +13,21 @@
   <% farmers.forEach(function(farmers) {%>
     <div class="mainContainer">
       <div class="editContainer">
-        <label>Name: </label>
-        <p id="prop<%=farmers.name%>"><%= farmers.name %></p>
+        <label>District: </label>
+        <p id="prop<%=farmers.district%>"><%= farmers.district %></p>
 
-        <form class="editForm" action="/editname" method="post">
+        <form class="editForm" action="/editdistrict" method="post">
           <input type="hidden" name="id" value="<%= farmers.id %>">
-          <input id="input<%=farmers.name%>" type="text" name="name" value="<%= farmers.name %>" autocomplete="off"
+          <input id="input<%=farmers.district%>" type="text" name="district" value="<%= farmers.district %>" autocomplete="off"
             autofocus="true" hidden="true" />
-          <button id="done<%=farmers.name%>" type="submit" hidden><img class="icon"
+          <button id="done<%=farmers.district%>" type="submit" hidden><img class="icon"
             src="/assets/check-solid.svg" alt="tick image">
           </button>
         </form>
-        <button id="edit<%=farmers.name%>" onclick="handler('<%=farmers.name%>')"><img class="icon"
+        <button id="edit<%=farmers.district%>" onclick="handler('<%=farmers.district%>')"><img class="icon"
           src="/assets/pencil-solid.svg" alt="pencil image">
         </button>
-
+        
       </div>
     </div>
   <% }) %>
