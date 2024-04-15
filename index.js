@@ -128,22 +128,29 @@ app.post("/filtercrop", async (req, res) => {
   }
 });
 
-//EDIT DETAILS - EDITREC.EJS
+//EDIT DETAILS - EDITNAME.EJS
 app.get("/editname", async (req, res) => {
   res.render("editname.ejs");
 });
 
-app.post("/updaterec", async (req, res) => {
+app.post("/getID", async (req, res) => {
+  const id = req.body.getID;
+  try {
+    const result = await db.query("SELECT * FROM farmer WHERE id = $1;", [id]);
+    farmers = result.rows;
+    
+    res.render("editname.ejs", {farmers: farmers});
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.post("/editname", async (req, res) => {
   const name = req.body.name;
-  const age = req.body.age;
-  const district = req.body.district;
-  const state = req.body.state;
-  const crop = req.body.crop;
   const id = req.body.id
   try {
-    const result = await db.query("UPDATE farmer SET  name = ($1), age = ($2), district = ($3), state = ($4), crop = ($5) WHERE id = $6", 
-    [name, age, district, state, crop, id]);
-    res.render("editrec.ejs");
+    const result = await db.query("UPDATE farmer SET  name = ($1) WHERE id = $2", [name, id]);
+    res.render("editname.ejs");
   } catch (err) {
     console.log(err);
   }

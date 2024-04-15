@@ -2,40 +2,43 @@
 <img class="logo" src="images/logo.png" alt="">
 <h1 class="heading">Edit your Name</h1>
 
-<div class="container">
-    <form action="/updatename" method="post">
-      <label for="id">Enter your ID: </label>
-      <input type="number" id="id" name="id" required>
-
-      <div class="button">
-        <button type="submit" class="btn-des hover-des">Get Name</button>
-      </div>
-    </form>
-
-      <p id="title<%=item.id%>">
-        <%= item.title %>
-      </p>
-
-      <form class="edit" action="/edit" method="post">
-        <input type="hidden" name="updatedItemId" value="<%= item.id %>">
-        <input id="input<%=item.id%>" type="text" name="updatedItemTitle" value="<%= item.title %>" autocomplete="off"
-          autofocus="true" hidden="true" />
-        <button id="done<%=item.id%>" class="edit" type="submit" hidden><img class="icon"
-            src="/assets/icons/check-solid.svg" alt="tick image"></button>
-      </form>
-      <button id="edit<%=item.id%>" class="edit" onclick="handler('<%=item.id%>')"><img class="icon"
-          src="/assets/icons/pencil-solid.svg" alt="pencil image"></button>
-
-      
-
+<div class="filterContainer">
+  <form class="filterForm" action="/getID" method="post"> 
+      <input class="filterInput" type="text" id="getID" name="getID" placeholder="Enter your ID">
+      <button class="filterBtn" type="submit">Get Name</button>
+  </form>
 </div>
 
+<% if (locals.farmers){ %>
+  <% farmers.forEach(function(farmers) {%>
+    <div class="mainContainer">
+      <div class="editContainer">
+        <label>Name: </label>
+        <p id="prop<%=farmers.name%>"><%= farmers.name %></p>
+
+        <form class="editForm" action="/editname" method="post">
+          <input type="hidden" name="id" value="<%= farmers.id %>">
+          <input id="input<%=farmers.name%>" type="text" name="name" value="<%= farmers.name %>" autocomplete="off"
+            autofocus="true" hidden="true" />
+          <button id="done<%=farmers.name%>" type="submit" hidden><img class="icon"
+            src="/assets/check-solid.svg" alt="tick image">
+          </button>
+        </form>
+        <button id="edit<%=farmers.name%>" onclick="handler('<%=farmers.name%>')"><img class="icon"
+          src="/assets/pencil-solid.svg" alt="pencil image">
+        </button>
+        
+      </div>
+    </div>
+  <% }) %>
+<% } %>
+
 <script>
-  function handler(id) {
-    document.getElementById("title" + id).setAttribute("hidden", true)
-    document.getElementById("edit" + id).setAttribute("hidden", true)
-    document.getElementById("done" + id).removeAttribute("hidden")
-    document.getElementById("input" + id).removeAttribute("hidden")
+  function handler(prop) {
+    document.getElementById("prop" + prop).setAttribute("hidden", true)
+    document.getElementById("edit" + prop).setAttribute("hidden", true)
+    document.getElementById("done" + prop).removeAttribute("hidden")
+    document.getElementById("input" + prop).removeAttribute("hidden")
   }
 </script>
 
